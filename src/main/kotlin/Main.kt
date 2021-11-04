@@ -12,23 +12,49 @@ fun main(args: Array<String>) {
      */
 
     var nome = mutableListOf("Walace", "Henrique", "Silva")
-    var add = 1
-    var remover = 2
-    var lista = 3
 
 
-    while(true){
 
-        println("Digite 1 se for adiciona uma pessoa a lista: ")
-        println("Digite 2 se for reover uma pessoa a lista: ")
-        println("Digite 3 deseja ver a lista de convidados: ")
+    while (true) {
+        println("Digite sim para ver as opções: ")
+        var opcao = readLine()!!
+
+        if (opcao != "sim") {
+            break
+        }
+        println(
+            "Digite 1 se for adiciona uma pessoa a lista: " +
+                    " \nDigite 2 se for remove da lista:" +
+                    "  \nDigite 3 para ver a lista: "
+        )
+        var escolha = readLine()!!
+
+        when(escolha){
+            "1" ->{
+                println("\nDigite o nome do convidado:")
+                var convidado = readLine()!!
+                nome.add(convidado).toString()
+
+            }
+            "2" ->{
+                println("Digite um convidado para remover da lista:\n")
+                var convidado = readLine()!!
+                if (nome.contains(convidado)){
+                    nome.remove(convidado)
+                    print("O convidado foi removido: $convidado \n")
+                }else{
+                    println("O convidado: $convidado não existe \n ")
+                }
+            }
+            "3" ->{ println(" \nA lista de convidado: $nome \n") }
+
+        }
+
 
 
     }
 
-
-
-    }
+}
 
 
 
